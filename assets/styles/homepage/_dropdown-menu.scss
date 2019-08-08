@@ -1,0 +1,8 @@
+.dropdown-item {
+  // Highlights a dropdown menu item when the
+  // drop down is visible
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
+}
