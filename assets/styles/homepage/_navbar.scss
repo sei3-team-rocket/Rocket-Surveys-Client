@@ -1,0 +1,23 @@
+main {
+  margin: 2%;
+}
+
+.navbar {
+  // Uses flex to move navtext to the right side of the side of the screen
+  background-color: #2e2e2e;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+
+  .navbar-item {
+    // Colors each menubar item light gray
+    // with margins and no underline
+    color: lighten(gray, 20%);
+    margin: 1.5% 0 1.5% 5%;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
