@@ -18,6 +18,7 @@ const onGetSurveys = (event) => {
     .catch(ui.failure)
 }
 
+// update survey
 const onUpdateSurvey = (event) => {
   event.preventDefault()
   const id = sid
@@ -25,6 +26,7 @@ const onUpdateSurvey = (event) => {
   const formData = getFormFields(form)
   api.updateSurvey(id, formData)
     .then(() => {
+      // need to "re-get" to see newly updated surveys
       onGetSurveys(event)
       $('#settings-modal').modal('hide')
     },
