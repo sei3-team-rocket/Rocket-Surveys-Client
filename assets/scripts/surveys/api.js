@@ -24,12 +24,18 @@ const deleteSurvey = function (id) {
 }
 
 const updateSurvey = function (id, formData) {
+  console.log(`id is ${id}`)
+  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/surveys/' + id,
-    data: formData,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'survey': {
+        'question': formData.survey.question
+      }
     }
   })
 }
