@@ -22,5 +22,9 @@ main {
     &:hover {
       color: white;
     }
+    &:nth-child(2),
+    &:nth-child(3) {
+      flex-grow: 1;
+    }
   }
 }

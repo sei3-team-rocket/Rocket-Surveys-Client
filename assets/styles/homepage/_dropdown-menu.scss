@@ -1,5 +1,8 @@
+.dropdown {
+  flex-grow: 5;
+}
+
 .dropdown-item {
-  margin: 1.5% 0 1.5% 5%;
   // Highlights a dropdown menu item when the
   // drop down is visible
   &:hover {
