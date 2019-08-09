@@ -20,7 +20,7 @@
     <nav class="navbar">
       <!-- Dropdown Menu -->
         <!-- <a href="#" class="navbar-item" id="not-signed-in">Not-signed In</a> -->
-      <div class="dropdown">
+      <div style="flex-grow: 5" class="dropdown">
         <!-- The "Username" link will trigger the dropdown menu -->
         <a class="dropdown-toggle navbar-item username" id="dropdownMenuButton" data-toggle="dropdown" href="#">Username</a>
         <!-- These contents will be revealed when the user clicks on "Username" -->
@@ -34,7 +34,8 @@
       <!-- <a href="#" class="navbar-item" id="change-password">Change Password</a>
       <a href="#" class="navbar-item" id="sign-out">Sign Out</a> -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
+      <div id="authNotification"></div>
+      <button style="flex-grow: 1" type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
         Change Password
       </button>
 
@@ -69,7 +70,7 @@
       </div>
 
       <form id="sign-out">
-        <button type="submit">sign-out</button>
+        <button style="flex-grow: 1" type="submit">sign-out</button>
       </form>
     </nav>
   </header>
