@@ -10,6 +10,7 @@ let sid = ''
 // set settings id to the survey that was clicked - for update & delete
 const onSettings = event => {
   sid = $(event.target).data('id')
+  // console.log(sid)
 }
 
 const onGetSurveys = (event) => {
