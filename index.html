@@ -83,6 +83,7 @@
           <div class="modal-body">
             <!-- This form creates a POST request to /surveys. This will send a survey
             title and a question. Both fields are required.-->
+            <p class="create-survey-failure"></p>
             <form id="create-survey">
               <div class="form-group">
                 <!-- Survey Title Input -->
@@ -93,7 +94,7 @@
                 <input type="text" class="form-control" name="survey[question]" placeholder="Yes-no Question" required>
               </div>
                 <!-- Closes the survey WITH submit -->
-                <button type="button" id="submit-create" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                <button type="submit" id="submit-create" class="btn btn-primary">Submit</button>
 
                 <!-- Closes the survey WITHOUT submit -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -102,9 +103,25 @@
         </div>
       </div>
     </div>
-    <!-- <a href="#" class="topitem" id="not-signed-in">Not-signed In</a> -->
-    <!-- </nav>
-    </header> -->
+
+    <!-- CREATE SURVEY SUCCESS MODAL -->
+    <div class="modal fade" id="create-success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create New Survey Successful</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>You've successfully created a survey!</p>
+                <!-- Closes the success WITHOUT submit -->
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <div id="main-auth">
         <button id="show-sign-up">sign-up</button>
