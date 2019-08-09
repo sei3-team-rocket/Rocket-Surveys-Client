@@ -13,7 +13,8 @@ main {
     // Colors each menubar item light gray
     // with margins and no underline
     color: lighten(gray, 20%);
-    margin: 1.5% 0 1.5% 5%;
+    margin: 0;
+    margin-right: 10px;
     text-decoration: none;
 
     &:hover {
