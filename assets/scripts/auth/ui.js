@@ -38,6 +38,7 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('.dropdown').show()
   $('.change-password-top').show()
+  // show surveys on sign in
   surveyEvents.onGetSurveys()
 }
 

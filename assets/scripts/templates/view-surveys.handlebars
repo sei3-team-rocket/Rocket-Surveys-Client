@@ -1,13 +1,13 @@
 {{#each surveys as |survey|}}
   {{log survey}}
 
-  <div class="card bg-primary text-white text-center mb-3 tile" data-id="{{habit.id}}">
+  <div class="card bg-primary text-white text-center mb-3 tile" data-id="{{survey.id}}">
     <div class="card-body">
-       <h5 class="card-title">{{limit survey.question 15}}</h5>
+       <h5 class="card-title">{{survey.question}}</h5>
        <p class="card-text">Yes: {{survey.answer.answerOne}}</p>
        <p class="card-text">No: {{survey.answer.answerTwo}}</p>
      </div>
-     <button type="button" data-id="{{survey.id}}" data-toggle="modal" data-target=".settings-modal" class="btn settings">Settings</button>
+     <button type="button" data-id="{{survey.id}}" data-toggle="modal" data-target=".settings-modal" class="btn settings btn-secondary text-white">Settings</button>
   </div>
 
   <div class="modal settings-modal" id="settings-modal" tabindex="-1" role="dialog">
@@ -26,7 +26,7 @@
          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn delete-survey-button" data-dismiss="modal">Delete Survey</button>
+          <button type="button" class="btn btn-danger delete-survey-button" data-dismiss="modal">Delete Survey</button>
         </div>
       </div>
     </div>
