@@ -46,10 +46,22 @@ const onDeleteSurvey = (event) => {
     .catch(ui.failure)
 }
 
+const onCreateSurvey = (event) => {
+  // Since this is a click event from the modal
+  // event.preventDefault() isn't necessary here
+  // Start by getting form data instead
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+  $('#create-survey-modal').modal('hide')
+}
+
 const addHandlers = () => {
   $('body').on('click', '.settings', onSettings)
   $('body').on('submit', '.edit-survey', onUpdateSurvey)
   $('body').on('click', '.delete-survey-button', onDeleteSurvey)
+  $('#create-survey').on('submit', onCreateSurvey)
 }
 
 module.exports = {
