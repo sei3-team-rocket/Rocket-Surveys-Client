@@ -3,6 +3,17 @@
 const config = require('../config')
 const store = require('../store')
 
+const createSurvey = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/surveys',
+    data: formData,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const getSurveys = function () {
   return $.ajax({
     url: config.apiUrl + '/surveys',
@@ -35,6 +46,7 @@ const updateSurvey = function (id, formData) {
 }
 
 module.exports = {
+  createSurvey,
   getSurveys,
   deleteSurvey,
   updateSurvey
