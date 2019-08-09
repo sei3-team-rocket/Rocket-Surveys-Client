@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const surveyEvents = require('../surveys/events.js')
 
 const signUpSuccess = () => {
   $('form').trigger('reset')
@@ -37,6 +38,8 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('.dropdown').show()
   $('.change-password-top').show()
+  // show surveys on sign in
+  surveyEvents.onGetSurveys()
 }
 
 const signInFailure = () => {

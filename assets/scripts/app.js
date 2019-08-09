@@ -7,6 +7,7 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
+const surveyEvents = require('./surveys/events.js')
 
 // going to colaberate with Béthy for sign-up/sign-in
 $(() => {
@@ -34,4 +35,7 @@ $(() => {
 
   // Show Create Survey modal from menu item click
   $('#create-survey-link').on('click', () => $('#create-survey-modal').modal('show'))
+
+  // pull in event handlers from surveys/events.js
+  surveyEvents.addHandlers()
 })
