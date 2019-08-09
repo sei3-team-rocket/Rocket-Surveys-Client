@@ -1,0 +1,16 @@
+{{#each surveys as |survey|}}
+  {{log survey}}
+
+  <div class="card" data-id="{{survey.id}}">
+    <div class="card-body">
+       <h5 class="card-title">{{limit survey.question 15}}</h5>
+       <!-- <p class="card-text">{{habit.streak}}</p> -->
+       <form class="answer">
+         <input type="radio" name="answer" value="yes"> Yes<br>
+         <input type="radio" name="answer" value="no"> No<br>
+         <input type="submit" value="Submit">
+       </form>
+    </div>
+  </div>
+
+  {{/each}}

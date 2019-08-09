@@ -1,0 +1,35 @@
+{{#each surveys as |survey|}}
+  {{log survey}}
+
+  <div class="card bg-primary text-white text-center mb-3 tile" data-id="{{survey.id}}">
+    <div class="card-body">
+       <h5 class="card-title">{{survey.question}}</h5>
+       <p class="card-text">Yes: {{survey.answer.answerOne}}</p>
+       <p class="card-text">No: {{survey.answer.answerTwo}}</p>
+     </div>
+     <button type="button" data-id="{{survey.id}}" data-toggle="modal" data-target=".settings-modal" class="btn settings btn-secondary text-white">Settings</button>
+  </div>
+
+  <div class="modal settings-modal" id="settings-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hi$('body').on('click', '.settings', onSettings)dden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="edit-survey">
+           <input type="text" name="survey[question]" placeholder="Edit question...">
+           <button class="btn btn-secondary">Edit Survey</button>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger delete-survey-button" data-dismiss="modal">Delete Survey</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{/each}}

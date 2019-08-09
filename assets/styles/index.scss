@@ -1,3 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'homepage/_navbar.scss';
 @import 'homepage/_dropdown-menu.scss';
+
+// #authNotification {
+//   float: right;
+//   font-size: 25px;
+// }
+h1 {
+  // margin-left: 35%;
+  text-align: center;
+}
+
+#main-auth, #authNotification {
+  // margin-left: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+// #sign-up {
+//   margin-left: 25%;
+// }
+//
+// #sign-in {
+//   margin-left: 35%
+// }
