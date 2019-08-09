@@ -17,6 +17,7 @@
   <header>
     <nav class="navbar">
       <!-- Dropdown Menu -->
+        <!-- <a href="#" class="navbar-item" id="not-signed-in">Not-signed In</a> -->
       <div class="dropdown">
         <!-- The "Username" link will trigger the dropdown menu -->
         <a class="dropdown-toggle navbar-item username" id="dropdownMenuButton" data-toggle="dropdown" href="#">Username</a>
@@ -28,8 +29,41 @@
           <a class="dropdown-item" href="#">View All</a>
         </div>
       </div>
-      <a href="#" class="navbar-item" id="change-password">Change Password</a>
-      <a href="#" class="navbar-item" id="sign-out">Sign Out</a>
+      <!-- <a href="#" class="navbar-item" id="change-password">Change Password</a>
+      <a href="#" class="navbar-item" id="sign-out">Sign Out</a> -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
+        Change Password
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change password here</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="change-password">
+              <div class="modal-body">
+                <input type="password" name="passwords[old]" placeholder="old password">
+                <input type="password" name="passwords[new]" placeholder="new password">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Change Password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <form id="sign-out">
+        <button type="submit">sign-out</button>
+      </form>
     </nav>
   </header>
 
@@ -68,45 +102,10 @@
         </div>
       </div>
     </div>
-    <a href="#" class="topitem" id="not-signed-in">Not-signed In</a>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
-      Change Password
-    </button>
+    <!-- <a href="#" class="topitem" id="not-signed-in">Not-signed In</a> -->
+    <!-- </nav>
+    </header> -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Change password here</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form id="change-password">
-            <div class="modal-body">
-              <input type="password" name="passwords[old]" placeholder="old password">
-              <input type="password" name="passwords[new]" placeholder="new password">
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary">Change Password</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <form id="sign-out">
-      <button type="submit">sign-out</button>
-    </form>
-    </nav>
-    </header>
-
-    <main>
-      <h1 class="title">Rocket Surveys 🚀</h1>
       <div id="main-auth">
         <button id="show-sign-up">sign-up</button>
         <button id="show-sign-in">sign-in</button>
