@@ -47,14 +47,14 @@ const onDeleteSurvey = (event) => {
 }
 
 const onCreateSurvey = (event) => {
-  // Since this is a click event from the modal
-  // event.preventDefault() isn't necessary here
-  // Start by getting form data instead
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
-  $('#create-survey-modal').modal('hide')
+
+  api.createSurvey(formData)
+    .then(ui.createSurveySuccessful)
+    .then(() => onGetSurveys(event))
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {
