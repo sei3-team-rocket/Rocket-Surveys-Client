@@ -8,7 +8,9 @@ main {
   background-color: #2e2e2e;
   display: flex;
   justify-content: flex-end;
-  padding: 2%;
+  align-items: center;
+  // padding: 2%;
+  height: 100px;
 
   .navbar-item {
     // Colors each menubar item light gray
