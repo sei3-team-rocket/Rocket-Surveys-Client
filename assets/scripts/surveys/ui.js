@@ -20,6 +20,15 @@ const updateSurveySuccess = (data) => {
   $('.content').html(showSurveysHtml)
 }
 
+const createSurveySuccessful = () => {
+  // Close the modal after a submit event
+  $('#create-survey-modal').modal('hide')
+
+  // Show a success modal
+  $('#create-success-modal').modal('show')
+  $('form').trigger('reset')
+}
+
 const failure = (error) => {
   console.error(error)
 }
@@ -28,5 +37,6 @@ module.exports = {
   getSurveysSuccess,
   deleteSurveySuccess,
   updateSurveySuccess,
+  createSurveySuccessful,
   failure
 }
