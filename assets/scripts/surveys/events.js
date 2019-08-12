@@ -66,15 +66,37 @@ const onCreateSurvey = (event) => {
     .catch(ui.failure)
 }
 
+const onAnswerSurvey = event => {
+  event.preventDefault()
+  console.log(event.target)
+  const id = $(event.target).data('id')
+  const question = $(event.target).data('question')
+  let yes = $(event.target).data('yes')
+  let no = $(event.target).data('no')
+  if (document.getElementById('response_yes').checked) {
+    yes += 1
+  } else if (document.getElementById('response_no').checked) {
+    no += 1
+  }
+  api.answerSurvey(id, question, yes, no)
+    .then(console.log(`id = ${id}, questions = ${question}, yes = ${yes}, no = ${no}`))
+
+  // api.answerSurvey(yes, no)
+  //   .then(console.log)
+  //   .catch(console.log)
+}
+
 const addHandlers = () => {
   $('body').on('click', '.settings', onSettings)
   $('body').on('submit', '.edit-survey', onUpdateSurvey)
   $('body').on('click', '.delete-survey-button', onDeleteSurvey)
   $('#create-survey').on('submit', onCreateSurvey)
+  $('body').on('click', '.survey-response', onAnswerSurvey)
 }
 
 module.exports = {
   addHandlers,
   onGetSurveys,
-  onTakeSurveys
+  onTakeSurveys,
+  onAnswerSurvey
 }

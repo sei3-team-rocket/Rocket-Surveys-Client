@@ -3,18 +3,18 @@
 const config = require('../config')
 const store = require('../store')
 
-const createSurvey = function (formData) {
+const createSurvey = function(formData) {
   return $.ajax({
     url: config.apiUrl + '/surveys',
-    data: formData,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: formData
   })
 }
 
-const getSurveys = function () {
+const getSurveys = function() {
   return $.ajax({
     url: config.apiUrl + '/surveys',
     headers: {
@@ -23,7 +23,7 @@ const getSurveys = function () {
   })
 }
 
-const takeSurveys = function () {
+const takeSurveys = function() {
   return $.ajax({
     url: config.apiUrl + '/surveys',
     headers: {
@@ -32,7 +32,7 @@ const takeSurveys = function () {
   })
 }
 
-const deleteSurvey = function (id) {
+const deleteSurvey = function(id) {
   return $.ajax({
     url: config.apiUrl + '/surveys/' + id,
     // url: `${config.apiUrl}/books/${id}`,
@@ -60,10 +60,28 @@ const updateSurvey = function (id, formData) {
   })
 }
 
+const answerSurvey = function (id, question, yes, no) {
+  return $.ajax({
+    url: config.apiUrl + '/surveys/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      survey: {
+        question: question,
+        yes: JSON.stringify(yes),
+        no: JSON.stringify(no)
+      }
+    }
+  })
+}
+
 module.exports = {
   createSurvey,
   getSurveys,
   deleteSurvey,
   updateSurvey,
-  takeSurveys
+  takeSurveys,
+  answerSurvey
 }
