@@ -79,6 +79,9 @@ const signOutSuccess = () => {
   $('.dropdown').hide()
   $('#not-signed-in').show()
   $('.change-password-top').hide()
+
+  // clear survey content after sign out
+  $('#content').empty()
 }
 
 const signOutFailure = () => {
