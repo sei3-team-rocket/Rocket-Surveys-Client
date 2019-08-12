@@ -27,6 +27,12 @@ const signInSuccess = (data) => {
     $('#authNotification').text('')
   }, 2000)
   store.user = data.user
+  console.log('this is the data i\'m looking for', store.user)
+
+  // show user id to help separate surveys by owner
+  // only temporary
+  $('#show-user-id').text(store.user._id)
+
   // hide Sign up/ sign in once signed in
   $('#sign-up').hide()
   $('#sign-in').hide()

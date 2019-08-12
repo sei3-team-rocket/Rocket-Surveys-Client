@@ -35,6 +35,7 @@ $(() => {
 
   // Show Create Survey modal from menu item click
   $('#create-survey-link').on('click', () => $('#create-survey-modal').modal('show'))
+  $('#take-surveys').on('submit', surveyEvents.onTakeSurveys)
 
   // pull in event handlers from surveys/events.js
   surveyEvents.addHandlers()

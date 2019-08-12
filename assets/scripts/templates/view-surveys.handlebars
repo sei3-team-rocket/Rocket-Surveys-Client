@@ -3,6 +3,13 @@
 
   <div class="card bg-primary text-white text-center mb-3 tile" data-id="{{survey._id}}">
     <div class="card-body">
+
+
+      <!-- testing for card info to figure out how to filter based on owner -->>
+        <h1 class="card-info"> this is survey id{{survey._id}} made by {{survey.owner}}</h1>
+
+
+
        <h5 class="card-title">{{survey.question}}</h5>
        <p class="card-text">Yes: {{survey.answer.answerOne}}</p>
        <p class="card-text">No: {{survey.answer.answerTwo}}</p>

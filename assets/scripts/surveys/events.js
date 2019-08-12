@@ -13,6 +13,14 @@ const onSettings = event => {
   // console.log(sid)
 }
 
+const onTakeSurveys = event => {
+  event.preventDefault()
+  $('#content').html('')
+  api.takeSurveys()
+    .then(ui.takeSurveySuccess)
+    .catch(console.log)
+}
+
 const onGetSurveys = (event) => {
   api.getSurveys()
     .then(ui.getSurveysSuccess)
@@ -67,5 +75,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onGetSurveys
+  onGetSurveys,
+  onTakeSurveys
 }

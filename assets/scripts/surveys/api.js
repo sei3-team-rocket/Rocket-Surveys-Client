@@ -23,6 +23,15 @@ const getSurveys = function () {
   })
 }
 
+const takeSurveys = function () {
+  return $.ajax({
+    url: config.apiUrl + '/surveys',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteSurvey = function (id) {
   return $.ajax({
     url: config.apiUrl + '/surveys/' + id,
@@ -55,5 +64,6 @@ module.exports = {
   createSurvey,
   getSurveys,
   deleteSurvey,
-  updateSurvey
+  updateSurvey,
+  takeSurveys
 }
