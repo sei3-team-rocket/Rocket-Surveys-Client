@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'colors.scss';
 @import 'homepage/_navbar.scss';
 @import 'homepage/_dropdown-menu.scss';
 
@@ -10,4 +11,17 @@
 h1, #main-auth, #authNotification, #sign-up, #sign-in {
   display: flex;
   justify-content: center;
+}
+
+#main-auth {
+  flex-direction: column;
+  margin: 0 33%;
+
+  .btn {
+    margin: 1% 0;
+  }
+}
+
+body {
+  background-color: $white;
 }
