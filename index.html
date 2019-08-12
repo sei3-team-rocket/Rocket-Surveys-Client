@@ -137,25 +137,38 @@
       </div>
     </div>
 
-    <div id="main-auth">
-      <button id="show-sign-up">sign-up</button>
-      <button id="show-sign-in">sign-in</button>
-    </div>
+
     <form id="sign-up">
-      <input type="email" name="credentials[email]" placeholder="email">
-      <input type="password" name="credentials[password]" placeholder="password">
-      <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-      <button type="submit">Create Account</button>
+      <div class="form-group">
+      <input type="email" name="credentials[email]" placeholder="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" class="form-control">
+    </div>
+      <button type="submit" class="btn btn-success">Create Account</button>
+      <!-- <button type="click">Back</button> -->
     </form>
 
 
     <form id="sign-in">
-      <input type="email" name="credentials[email]" placeholder="email">
-      <input type="password" name="credentials[password]" placeholder="password">
-      <button type="submit">sign in</button>
+      <div class="form-group">
+      <input type="email" name="credentials[email]" placeholder="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+    </div>
+      <button type="submit" class="btn btn-success">Login</button>
     </form>
     <div id="authNotification"></div>
     <div id="content" class="content"></div>
+
+    <div id="main-auth">
+      <button id="show-sign-up" class="btn btn-primary">Sign up</button>
+      <button id="show-sign-in" class="btn btn-primary">Sign in</button>
+    </div>
 
   </main>
 </body>

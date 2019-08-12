@@ -18,8 +18,14 @@ h1, #main-auth, #authNotification, #sign-up, #sign-in {
   margin: 0 33%;
 
   .btn {
-    margin: 1% 0;
+    margin: 3% 0;
   }
+}
+
+#sign-up, #sign-in {
+  flex-direction: column;
+  margin: 0 33%;
+  margin-top: 5%;
 }
 
 body {
