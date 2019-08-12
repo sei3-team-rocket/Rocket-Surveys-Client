@@ -1,12 +1,23 @@
 'use strict'
 
+const takeSurveysTemplate = require('../templates/take-surveys.handlebars')
 const showSurveysTemplate = require('../templates/view-surveys.handlebars')
+const store = require('./../store')
 
-const getSurveysSuccess = (data) => {
-  const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
+const getSurveysSuccess = data => {
+  $('.content').html('')
+  const usersSurveys = data.surveys.filter(survey => survey.owner === store.user._id)
+  const showMySurveys = showSurveysTemplate({ surveys: usersSurveys })
   $('.content').show()
-  $('.content').html(showSurveysHtml)
+  $('.content').html(showMySurveys)
   $('#auth').hide()
+}
+
+const takeSurveySuccess = data => {
+  $('.content').html('')
+  const otherPeoplesSurveys = data.surveys.filter(survey => survey.owner !== store.user._id)
+  const showOthersSurveys = takeSurveysTemplate({ surveys: otherPeoplesSurveys })
+  $('.content').html(showOthersSurveys)
 }
 
 const deleteSurveySuccess = (data) => {
@@ -38,5 +49,6 @@ module.exports = {
   deleteSurveySuccess,
   updateSurveySuccess,
   createSurveySuccessful,
+  takeSurveySuccess,
   failure
 }

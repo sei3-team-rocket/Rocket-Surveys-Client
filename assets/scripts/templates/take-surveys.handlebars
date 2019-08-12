@@ -1,9 +1,10 @@
 {{#each surveys as |survey|}}
-  {{log survey}}
-
+<!-- {{#if (eq survey.id userID)}} -->
+<!-- <h1> {{userID.id}} </h1> -->
   <div class="card" data-id="{{survey.id}}">
     <div class="card-body">
-       <h5 class="card-title">{{limit survey.question 15}}</h5>
+       <h5 class="card-title">{{survey.question}}</h5>
+
        <!-- <p class="card-text">{{habit.streak}}</p> -->
        <form class="answer">
          <input type="radio" name="answer" value="yes"> Yes<br>
@@ -12,5 +13,5 @@
        </form>
     </div>
   </div>
-
+  <!-- {{/if}} -->
   {{/each}}

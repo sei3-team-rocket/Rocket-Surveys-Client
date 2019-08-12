@@ -27,6 +27,8 @@ const signInSuccess = (data) => {
     $('#authNotification').text('')
   }, 2000)
   store.user = data.user
+  $('.username').text(data.user.email)
+
   // hide Sign up/ sign in once signed in
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -38,6 +40,7 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('.dropdown').show()
   $('.change-password-top').show()
+  $('.hide-on-signed-out').show()
   // show surveys on sign in
   surveyEvents.onGetSurveys()
 }
@@ -79,9 +82,8 @@ const signOutSuccess = () => {
   $('.dropdown').hide()
   $('#not-signed-in').show()
   $('.change-password-top').hide()
-
-  // clear survey content after sign out
-  $('#content').empty()
+  $('.content').html('')
+  $('.hide-on-signed-out').hide()
 }
 
 const signOutFailure = () => {
