@@ -10,7 +10,6 @@ let sid = ''
 // set settings id to the survey that was clicked - for update & delete
 const onSettings = event => {
   sid = $(event.target).data('id')
-  // console.log(sid)
 }
 
 const onTakeSurveys = event => {
@@ -18,7 +17,7 @@ const onTakeSurveys = event => {
   $('#content').html('')
   api.takeSurveys()
     .then(ui.takeSurveySuccess)
-    .catch(console.log)
+    .catch(ui.failure)
 }
 
 const onGetSurveys = (event) => {
@@ -68,18 +67,8 @@ const onCreateSurvey = (event) => {
 
 const onAnswerSurvey = event => {
   event.preventDefault()
-  console.log(event.target)
   const surveyId = $(event.target).data('id')
-  // const question = $(event.target).data('question')
-  // const surveyId = null
-  // const yes = $(event.target).data('yes')
-  // const no = $(event.target).data('no')
   let questionResponse
-  // console.log('yes checked', $('#response_yes').val())
-  // console.log('no checked', $('#response_no').val())
-
-  console.log('yes checked', $('input[type=radio][name=answer]:checked').val())
-  // console.log('no checked', $('#response_no').val())
 
   if ($('input[type=radio][name=answer]:checked').val() === 'yes') {
     // yes += 1
@@ -88,17 +77,10 @@ const onAnswerSurvey = event => {
     // no += 1
     questionResponse = false
   }
-  console.log(questionResponse)
-  // api.answerSurvey(id, question, yes, no)
-  //   .then(console.log(`id = ${id}, questions = ${question}, yes = ${yes}, no = ${no}`))
 
   api.answerSurvey(surveyId, questionResponse)
-    .then(console.log)
-    // .then(ui.takeSurveySuccess)
-
-  // api.answerSurvey(yes, no)
-  //   .then(console.log)
-  //   .catch(console.log)
+  //   .then(ui.takeSurveySuccess)
+  //   .catch(ui.takeSurveySuccess)
 }
 
 const addHandlers = () => {
