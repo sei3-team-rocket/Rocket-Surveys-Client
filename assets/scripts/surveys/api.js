@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const createSurvey = function(formData) {
+const createSurvey = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/surveys',
     method: 'POST',
@@ -14,7 +14,7 @@ const createSurvey = function(formData) {
   })
 }
 
-const getSurveys = function() {
+const getSurveys = function () {
   return $.ajax({
     url: config.apiUrl + '/surveys',
     headers: {
@@ -23,7 +23,7 @@ const getSurveys = function() {
   })
 }
 
-const takeSurveys = function() {
+const takeSurveys = function () {
   return $.ajax({
     url: config.apiUrl + '/surveys',
     headers: {
@@ -32,7 +32,7 @@ const takeSurveys = function() {
   })
 }
 
-const deleteSurvey = function(id) {
+const deleteSurvey = function (id) {
   return $.ajax({
     url: config.apiUrl + '/surveys/' + id,
     // url: `${config.apiUrl}/books/${id}`,
@@ -44,8 +44,6 @@ const deleteSurvey = function(id) {
 }
 
 const updateSurvey = function (id, formData) {
-  console.log(`id is ${id}`)
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/surveys/' + id,
     method: 'PATCH',
