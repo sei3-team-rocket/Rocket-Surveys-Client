@@ -12,7 +12,7 @@ const getSurveysSuccess = data => {
   $('.content').html(showMySurveys)
   $('#auth').hide()
   $('#show-my-surveys').hide()
-  $('#take-surveys').hide()
+  $('#take-surveys').show()
 }
 
 const takeSurveySuccess = data => {
