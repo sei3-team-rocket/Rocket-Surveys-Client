@@ -10,6 +10,7 @@ const signUpSuccess = () => {
     $('#authNotification').text('')
   }, 2000)
   $('#sign-up').hide()
+  $('#main-auth').show()
 }
 
 const signUpFailure = () => {
@@ -63,9 +64,9 @@ const changePasswordSuccess = () => {
 }
 const changePasswordFailure = () => {
   $('form').trigger('reset')
-  $('#authNotification').text('password change failed')
+  $('.password-error').text('password change failed')
   setTimeout(function () {
-    $('#authNotification').text('')
+    $('.password-error').text('')
   }, 2000)
 }
 
