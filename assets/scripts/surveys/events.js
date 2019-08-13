@@ -78,8 +78,14 @@ const onAnswerSurvey = event => {
   }
 
   api.answerSurvey(surveyId, questionResponse)
-  //   .then(ui.takeSurveySuccess)
-  //   .catch(ui.takeSurveySuccess)
+    .then(() => {
+      onTakeSurveys(event)
+    })
+    .then($('#authNotification').text('Response recorded.'))
+    .then(setTimeout(function () {
+      $('#authNotification').text('')
+    }, 2000))
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {

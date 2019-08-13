@@ -7,9 +7,9 @@
 
        <!-- <p class="card-text">{{habit.streak}}</p> -->
        <form class="answer">
-         <input type="radio" name="answer" value="yes" id="response_yes"> Yes<br>
-         <input type="radio" name="answer" value="no" id="response_no"> No<br>
-         <button type="click" class="survey-response" data-id="{{survey._id}}" data-question="{{survey.question}}" data-yes="{{survey.yes}}" data-no="{{survey.no}}">Submit</button>
+         <input type="radio" name="answer" value="yes" class="response_yes"> Yes<br>
+         <input type="radio" name="answer" value="no" class="response_no"> No<br>
+         <button type="click" class="survey-response btn-primary" data-id="{{survey._id}}" data-question="{{survey.question}}" data-yes="{{survey.yes}}" data-no="{{survey.no}}">Submit</button>
        </form>
     </div>
   </div>
