@@ -12,15 +12,15 @@ const getSurveysSuccess = data => {
   $('.content').html(showMySurveys)
   $('#auth').hide()
   $('#show-my-surveys').hide()
+  $('#take-surveys').show()
 }
 
 const takeSurveySuccess = data => {
   $('.content').html('')
-  const otherPeoplesSurveys = data.surveys.filter(survey => survey.owner !== store.user._id)
-  // const showOthersSurveys = takeSurveysTemplate({ surveys: otherPeoplesSurveys })
   const showOthersSurveys = takeSurveysTemplate({ surveys: data.surveys })
   $('.content').html(showOthersSurveys)
   $('#show-my-surveys').show()
+  $('#take-surveys').hide()
 }
 
 const deleteSurveySuccess = (data) => {
@@ -29,7 +29,6 @@ const deleteSurveySuccess = (data) => {
     $('#authNotification').text('')
   }, 2000)
 }
-
 const deleteSurveyFailure = (data) => {
   $('#authNotification').text('unable to delete survey, bad request :(')
   setTimeout(function () {
@@ -58,9 +57,9 @@ const failure = (error) => {
 module.exports = {
   getSurveysSuccess,
   deleteSurveySuccess,
-  deleteSurveyFailure,
   updateSurveySuccess,
   createSurveySuccessful,
   takeSurveySuccess,
-  failure
+  failure,
+  deleteSurveyFailure
 }
