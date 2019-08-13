@@ -40,12 +40,12 @@
 
 
       <!-- Nav link trigger for Change Password Modal -->
-      <a href="#" class="navbar-item change-password-top" data-toggle="modal" data-target="#exampleModal">
+      <a href="#" class="navbar-item change-password-top" data-toggle="modal" data-target="#create-pass-modal">
         Change Password
       </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="create-pass-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -64,8 +64,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-primary">Change Password</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
             </form>
           </div>
@@ -138,32 +138,36 @@
     </div>
 
 
-    <form id="sign-up">
+    <form class="auth-forms" id="sign-up">
       <div class="form-group">
-      <input type="email" name="credentials[email]" placeholder="email" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="password" name="credentials[password]" placeholder="password" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" class="form-control">
-    </div>
-      <button type="submit" class="btn btn-success">Create Account</button>
-      <button class="btn btn-secondary back">Back</button>
-      <!-- <button type="click">Back</button> -->
+        <input type="email" name="credentials[email]" placeholder="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" class="form-control">
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success">Create Account</button>
+        <button type="button" class="btn btn-secondary back">Back</button>
+      </div>
     </form>
 
 
-    <form id="sign-in">
+    <form class="auth-forms" id="sign-in">
       <div class="form-group">
-      <input type="email" name="credentials[email]" placeholder="email" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="password" name="credentials[password]" placeholder="password" class="form-control">
-    </div>
-      <button type="submit" class="btn btn-success">Login</button>
-      <button class="btn btn-secondary back">Back</button>
+        <input type="email" name="credentials[email]" placeholder="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success">Login</button>
+        <button type="button" class="btn btn-secondary back">Back</button>
+      </div>
     </form>
+
     <div id="authNotification"></div>
     <div id="content" class="content"></div>
 
