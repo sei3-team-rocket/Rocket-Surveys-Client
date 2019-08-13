@@ -19,15 +19,15 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form class="edit-survey">
         <div class="modal-body">
-          <form class="edit-survey">
-           <input type="text" name="survey[question]" placeholder="Edit question...">
-           <button class="btn btn-secondary">Edit Survey</button>
-         </form>
+           <input type="text" name="survey[question]" placeholder="Edit question..." required>
         </div>
         <div class="modal-footer">
+          <button class="btn btn-secondary">Edit Survey</button>
           <button type="button" class="btn btn-danger delete-survey-button" data-dismiss="modal">Delete Survey</button>
         </div>
+       </form>
       </div>
     </div>
   </div>

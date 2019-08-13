@@ -34,6 +34,7 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('.back').on('click', event => {
     $('.auth-forms').hide()
+    $('form').trigger('reset')
     $('#main-auth').show()
   })
 
