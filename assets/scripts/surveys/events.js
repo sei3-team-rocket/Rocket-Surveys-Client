@@ -48,10 +48,9 @@ const onDeleteSurvey = (event) => {
   api.deleteSurvey(id)
     .then(() => {
       onGetSurveys(event)
-    },
-    $('#message').text('Survey deleted.')
-    )
-    .catch(ui.failure)
+    })
+    .then(ui.deleteSurveySuccess)
+    .catch(ui.deleteSurveyFailure)
 }
 
 const onCreateSurvey = (event) => {
