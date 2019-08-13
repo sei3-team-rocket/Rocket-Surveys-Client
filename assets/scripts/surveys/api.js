@@ -60,18 +60,34 @@ const updateSurvey = function (id, formData) {
   })
 }
 
-const answerSurvey = function (id, question, yes, no) {
+// const answerSurvey = function (id, question, yes, no) {
+//   return $.ajax({
+//     url: config.apiUrl + '/surveys/' + id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       survey: {
+//         question: question,
+//         yes: JSON.stringify(yes),
+//         no: JSON.stringify(no)
+//       }
+//     }
+//   })
+// }
+
+const answerSurvey = function (surveyId, questionResponse) {
   return $.ajax({
-    url: config.apiUrl + '/surveys/' + id,
-    method: 'PATCH',
+    url: config.apiUrl + '/responses',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      survey: {
-        question: question,
-        yes: JSON.stringify(yes),
-        no: JSON.stringify(no)
+      response: {
+        answer: questionResponse,
+        survey: surveyId
       }
     }
   })

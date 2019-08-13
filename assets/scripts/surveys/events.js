@@ -69,17 +69,32 @@ const onCreateSurvey = (event) => {
 const onAnswerSurvey = event => {
   event.preventDefault()
   console.log(event.target)
-  const id = $(event.target).data('id')
-  const question = $(event.target).data('question')
-  let yes = $(event.target).data('yes')
-  let no = $(event.target).data('no')
-  if (document.getElementById('response_yes').checked) {
-    yes += 1
-  } else if (document.getElementById('response_no').checked) {
-    no += 1
+  const surveyId = $(event.target).data('id')
+  // const question = $(event.target).data('question')
+  // const surveyId = null
+  // const yes = $(event.target).data('yes')
+  // const no = $(event.target).data('no')
+  let questionResponse
+  // console.log('yes checked', $('#response_yes').val())
+  // console.log('no checked', $('#response_no').val())
+
+  console.log('yes checked', $('input[type=radio][name=answer]:checked').val())
+  // console.log('no checked', $('#response_no').val())
+
+  if ($('input[type=radio][name=answer]:checked').val() === 'yes') {
+    // yes += 1
+    questionResponse = true
+  } else if ($('input[type=radio][name=answer]:checked').val() === 'no') {
+    // no += 1
+    questionResponse = false
   }
-  api.answerSurvey(id, question, yes, no)
-    .then(console.log(`id = ${id}, questions = ${question}, yes = ${yes}, no = ${no}`))
+  console.log(questionResponse)
+  // api.answerSurvey(id, question, yes, no)
+  //   .then(console.log(`id = ${id}, questions = ${question}, yes = ${yes}, no = ${no}`))
+
+  api.answerSurvey(surveyId, questionResponse)
+    .then(console.log)
+    // .then(ui.takeSurveySuccess)
 
   // api.answerSurvey(yes, no)
   //   .then(console.log)
