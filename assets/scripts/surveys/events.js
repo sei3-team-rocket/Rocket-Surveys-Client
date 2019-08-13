@@ -37,9 +37,15 @@ const onUpdateSurvey = (event) => {
       // need to "re-get" to see newly updated surveys
       onGetSurveys(event)
       $('#settings-modal').modal('hide')
+      $('.modal-backdrop').hide()
     },
-    $('#message').text('Survey updated.')
+    $('#authNotification').text('Survey updated.')
     )
+    .then(setTimeout(function () {
+      $('#authNotification').text('')
+    }, 2000))
+    // .then($('#change-password-modal').modal('hide'))
+    // $('.modal-backdrop').hide()
     .catch(ui.failure)
 }
 
@@ -48,6 +54,7 @@ const onDeleteSurvey = (event) => {
   api.deleteSurvey(id)
     .then(() => {
       onGetSurveys(event)
+      $('.modal-backdrop').hide()
     })
     .then(ui.deleteSurveySuccess)
     .catch(ui.deleteSurveyFailure)
@@ -73,16 +80,20 @@ const onAnswerSurvey = event => {
   if ($('input[type=radio][name=answer]:checked').val() === 'yes') {
     // yes += 1
     questionResponse = true
+    $('#authNotification').text('Response recorded.')
   } else if ($('input[type=radio][name=answer]:checked').val() === 'no') {
     // no += 1
     questionResponse = false
+    $('#authNotification').text('Response recorded.')
+  } else {
+    $('#authNotification').text('Please enter a response.')
   }
   api.answerSurvey(surveyId, questionResponse)
     .then(() => {
       onTakeSurveys(event)
       $('#settings-modal').modal('hide')
     })
-    .then($('#authNotification').text('Response recorded.'))
+    // .then($('#authNotification').text('Response recorded.'))
     .then(setTimeout(function () {
       $('#authNotification').text('')
     }, 2000))
