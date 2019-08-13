@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://rocket-surveys.herokuapp.com/',
+  production: 'https://rocket-surveys.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
