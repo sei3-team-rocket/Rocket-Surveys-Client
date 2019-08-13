@@ -18,8 +18,13 @@ h1, #main-auth, #authNotification, #sign-up, #sign-in {
   margin: 0 33%;
 
   .btn {
-    margin: 3% 0;
+    margin: 2% 0;
   }
+}
+
+.buttons {
+  @extend #main-auth;
+  margin: 0;
 }
 
 #sign-up, #sign-in {
