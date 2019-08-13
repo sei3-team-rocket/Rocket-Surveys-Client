@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+    <head>
+      <title>Rocket Surveys</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <title>Rocket Surveys</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -18,23 +20,28 @@
     <nav class="navbar">
       <!-- Dropdown Menu -->
         <!-- <a href="#" class="navbar-item" id="not-signed-in">Not-signed In</a> -->
-      <div class="dropdown">
+      <div style="flex-grow: 5" class="dropdown">
         <!-- The "Username" link will trigger the dropdown menu -->
         <a class="dropdown-toggle navbar-item username" id="dropdownMenuButton" data-toggle="dropdown" href="#">Username</a>
         <!-- These contents will be revealed when the user clicks on "Username" -->
         <div class="dropdown-menu">
-          <a class="dropdown-item" id="create-survey-link" href="#">Create</a>
-          <a class="dropdown-item" href="#">Find Survey</a>
-          <a class="dropdown-item" href="#">View Mine</a>
-          <a class="dropdown-item" href="#">View All</a>
+          <a class="dropdown-item" id="create-survey-link" href="#">Create Survey</a>
+          <a class="dropdown-item" id="take-surveys" href="#">Take Survey</a>
+          <a class="dropdown-item" id="show-my-surveys" href="#">View My Surveys</a>
         </div>
       </div>
       <!-- <a href="#" class="navbar-item" id="change-password">Change Password</a>
       <a href="#" class="navbar-item" id="sign-out">Sign Out</a> -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
+      <!-- <div id="authNotification"></div> -->
+      <button style="flex-grow: 1" type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
         Change Password
       </button>
+
+
+            <!-- <a href="#" class="change-password-top navbar-item" data-toggle="modal" data-target="#exampleModal">
+              Change Password
+            </a> -->
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -62,7 +69,7 @@
       </div>
 
       <form id="sign-out">
-        <button type="submit">sign-out</button>
+        <button style="flex-grow: 1" type="submit">sign-out</button>
       </form>
     </nav>
   </header>
@@ -83,6 +90,7 @@
           <div class="modal-body">
             <!-- This form creates a POST request to /surveys. This will send a survey
             title and a question. Both fields are required.-->
+            <p class="create-survey-failure"></p>
             <form id="create-survey">
               <div class="form-group">
                 <!-- Survey Title Input -->
@@ -93,7 +101,7 @@
                 <input type="text" class="form-control" name="survey[question]" placeholder="Yes-no Question" required>
               </div>
                 <!-- Closes the survey WITH submit -->
-                <button type="button" id="submit-create" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                <button type="submit" id="submit-create" class="btn btn-primary">Submit</button>
 
                 <!-- Closes the survey WITHOUT submit -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -102,28 +110,45 @@
         </div>
       </div>
     </div>
-    <!-- <a href="#" class="topitem" id="not-signed-in">Not-signed In</a> -->
-    <!-- </nav>
-    </header> -->
+
+    <!-- CREATE SURVEY SUCCESS MODAL -->
+    <div class="modal fade" id="create-success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create New Survey Successful</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>You've successfully created a survey!</p>
+                <!-- Closes the success WITHOUT submit -->
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <div id="main-auth">
         <button id="show-sign-up">sign-up</button>
         <button id="show-sign-in">sign-in</button>
       </div>
-      <form id="sign-up">
-        <input type="email" name="credentials[email]" placeholder="email">
-        <input type="password" name="credentials[password]" placeholder="password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-        <button type="submit">Create Account</button>
-      </form>
+        <form id="sign-up">
+          <input type="email" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+          <button type="submit">Create Account</button>
+        </form>
 
 
-      <form id="sign-in">
-        <input type="email" name="credentials[email]" placeholder="email">
-        <input type="password" name="credentials[password]" placeholder="password">
-        <button type="submit">sign in</button>
+        <form id="sign-in">
+          <input type="email" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <button type="submit">sign in</button>
       </form>
       <div id="authNotification"></div>
+
         <div id="content" class="content"></div>
 
     </main>
