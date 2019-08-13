@@ -77,13 +77,16 @@ const onAnswerSurvey = event => {
     // no += 1
     questionResponse = false
   }
-
   api.answerSurvey(surveyId, questionResponse)
-    // .then(console.log)
-    // .then(ui.takeSurveySuccess)
-
-  // api.answerSurvey(yes, no)
-
+    .then(() => {
+      onTakeSurveys(event)
+      $('#settings-modal').modal('hide')
+    })
+    .then($('#authNotification').text('Response recorded.'))
+    .then(setTimeout(function () {
+      $('#authNotification').text('')
+    }, 2000))
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {
