@@ -50,8 +50,12 @@ const createSurveySuccessful = () => {
   $('form').trigger('reset')
 }
 
-const failure = (error) => {
-  console.error(error)
+const failure = () => {
+  $('#authNotification').text('an error occured')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+  $('.modal').modal('hide')
 }
 
 module.exports = {
