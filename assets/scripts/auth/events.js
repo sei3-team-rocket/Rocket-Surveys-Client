@@ -28,10 +28,9 @@ const onChangePassword = event => {
   const formData = getFormFields(form)
 
   api.changePassword(formData)
-    .then(ui.changePassSuccess)
-    .then($('form').trigger('reset'))
-    .then($('#exampleModal').modal('hide'))
-    .catch(ui.changePassFailure)
+    .then(ui.changePasswordSuccess)
+    .then(() => $('#create-pass-modal').modal('hide'))
+    .catch(ui.changePasswordFailure)
 }
 
 const onSignOut = event => {
@@ -52,11 +51,13 @@ const clearAuthpads = () => {
 const showSignUp = event => {
   clearAuthpads()
   $('#sign-up').show()
+  $('#main-auth').hide()
 }
 
 const showSignIn = event => {
   clearAuthpads()
   $('#sign-in').show()
+  $('#main-auth').hide()
 }
 
 // probably dont need this if we are going to use a modal
