@@ -37,6 +37,10 @@ $(() => {
     $('#main-auth').show()
   })
 
+  $('body').on('hidden.bs.modal', event => {
+    $('form').trigger('reset')
+  })
+
   // Show Create Survey modal from menu item click
   $('#create-survey-link').on('click', () => $('#create-survey-modal').modal('show'))
   $('#take-surveys').on('click', surveyEvents.onTakeSurveys)
