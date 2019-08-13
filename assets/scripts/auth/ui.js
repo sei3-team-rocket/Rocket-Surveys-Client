@@ -10,6 +10,7 @@ const signUpSuccess = () => {
     $('#authNotification').text('')
   }, 2000)
   $('#sign-up').hide()
+  $('#main-auth').show()
 }
 
 const signUpFailure = () => {
@@ -41,6 +42,7 @@ const signInSuccess = (data) => {
   $('.dropdown').show()
   $('.change-password-top').show()
   $('.hide-on-signed-out').show()
+  $('#show-my-surveys').hide()
   // show surveys on sign in
   surveyEvents.onGetSurveys()
 }
@@ -62,9 +64,9 @@ const changePasswordSuccess = () => {
 }
 const changePasswordFailure = () => {
   $('form').trigger('reset')
-  $('#authNotification').text('password change failed')
+  $('.password-error').text('password change failed')
   setTimeout(function () {
-    $('#authNotification').text('')
+    $('.password-error').text('')
   }, 2000)
 }
 
@@ -84,6 +86,7 @@ const signOutSuccess = () => {
   $('.change-password-top').hide()
   $('.content').html('')
   $('.hide-on-signed-out').hide()
+  $('#show-my-surveys').hide()
 }
 
 const signOutFailure = () => {

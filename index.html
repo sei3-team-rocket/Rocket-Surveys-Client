@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Rocket Surveys</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Rocket Surveys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -19,8 +20,8 @@
   <header>
     <nav class="navbar">
       <!-- Dropdown Menu -->
-        <!-- <a href="#" class="navbar-item" id="not-signed-in">Not-signed In</a> -->
-      <div style="flex-grow: 5" class="dropdown">
+      <!-- <a href="#" class="navbar-item" id="not-signed-in">Not-signed In</a> -->
+      <div class="dropdown">
         <!-- The "Username" link will trigger the dropdown menu -->
         <a class="dropdown-toggle navbar-item username" id="dropdownMenuButton" data-toggle="dropdown" href="#">Username</a>
         <!-- These contents will be revealed when the user clicks on "Username" -->
@@ -33,18 +34,18 @@
       <!-- <a href="#" class="navbar-item" id="change-password">Change Password</a>
       <a href="#" class="navbar-item" id="sign-out">Sign Out</a> -->
       <!-- Button trigger modal -->
-      <!-- <div id="authNotification"></div> -->
-      <button style="flex-grow: 1" type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
+      <!-- <button type="button" class="btn btn-primary change-password-top" data-toggle="modal" data-target="#exampleModal">
         Change Password
-      </button>
+      </button> -->
 
 
-            <!-- <a href="#" class="change-password-top navbar-item" data-toggle="modal" data-target="#exampleModal">
-              Change Password
-            </a> -->
+      <!-- Nav link trigger for Change Password Modal -->
+      <a href="#" class="navbar-item change-password-top" data-toggle="modal" data-target="#create-pass-modal">
+        Change Password
+      </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="create-pass-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -55,22 +56,29 @@
             </div>
             <form id="change-password">
               <div class="modal-body">
-                <input type="password" name="passwords[old]" placeholder="old password">
-                <input type="password" name="passwords[new]" placeholder="new password">
-
+                <p class="password-error"></p>
+                <div class="form-group">
+                  <input type="password" name="passwords[old]" placeholder="old password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="passwords[new]" placeholder="new password" class="form-control" required>
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-primary">Change Password</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-      <form id="sign-out">
-        <button style="flex-grow: 1" type="submit">sign-out</button>
-      </form>
+      <!-- <form id="sign-out">
+        <a href="#" class="navbar-item">Sign Out</a>
+      </form> -->
+
+      <!-- Nav Link Trigger for Sign Out -->
+      <a href="#" id="sign-out" class="navbar-item">Sign Out</a>
     </nav>
   </header>
 
@@ -100,11 +108,11 @@
                 <!-- Survey Question Input -->
                 <input type="text" class="form-control" name="survey[question]" placeholder="Yes-no Question" required>
               </div>
-                <!-- Closes the survey WITH submit -->
-                <button type="submit" id="submit-create" class="btn btn-primary">Submit</button>
+              <!-- Closes the survey WITH submit -->
+              <button type="submit" id="submit-create" class="btn btn-primary">Submit</button>
 
-                <!-- Closes the survey WITHOUT submit -->
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <!-- Closes the survey WITHOUT submit -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
           </div>
         </div>
@@ -123,35 +131,53 @@
           </div>
           <div class="modal-body">
             <p>You've successfully created a survey!</p>
-                <!-- Closes the success WITHOUT submit -->
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <!-- Closes the success WITHOUT submit -->
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
 
-      <div id="main-auth">
-        <button id="show-sign-up">sign-up</button>
-        <button id="show-sign-in">sign-in</button>
+
+    <form class="auth-forms" id="sign-up">
+      <div class="form-group">
+        <input type="email" name="credentials[email]" placeholder="email" class="form-control">
       </div>
-        <form id="sign-up">
-          <input type="email" name="credentials[email]" placeholder="email">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-          <button type="submit">Create Account</button>
-        </form>
+      <div class="form-group">
+        <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password" class="form-control">
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success">Create Account</button>
+        <button type="button" class="btn btn-secondary back">Back</button>
+      </div>
+    </form>
 
 
-        <form id="sign-in">
-          <input type="email" name="credentials[email]" placeholder="email">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <button type="submit">sign in</button>
-      </form>
-      <div id="authNotification"></div>
+    <form class="auth-forms" id="sign-in">
+      <div class="form-group">
+        <input type="email" name="credentials[email]" placeholder="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="credentials[password]" placeholder="password" class="form-control">
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success">Login</button>
+        <button type="button" class="btn btn-secondary back">Back</button>
+      </div>
+    </form>
 
-        <div id="content" class="content"></div>
+    <div id="authNotification"></div>
+    <div id="content" class="content"></div>
 
-    </main>
+    <div id="main-auth">
+      <button id="show-sign-up" class="btn btn-primary">Sign up</button>
+      <button id="show-sign-in" class="btn btn-primary">Sign in</button>
+    </div>
+
+  </main>
 </body>
 
 </html>
