@@ -24,9 +24,17 @@ const takeSurveySuccess = data => {
 }
 
 const deleteSurveySuccess = (data) => {
-  const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
-  $('.content').html(showSurveysHtml)
-  $('#message').text('Survey deleted.')
+  $('#authNotification').text('successfully deleted survey')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
+}
+
+const deleteSurveyFailure = (data) => {
+  $('#authNotification').text('unable to delete survey, bad request :(')
+  setTimeout(function () {
+    $('#authNotification').text('')
+  }, 2000)
 }
 
 const updateSurveySuccess = (data) => {
@@ -50,6 +58,7 @@ const failure = (error) => {
 module.exports = {
   getSurveysSuccess,
   deleteSurveySuccess,
+  deleteSurveyFailure,
   updateSurveySuccess,
   createSurveySuccessful,
   takeSurveySuccess,
