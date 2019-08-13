@@ -43,6 +43,7 @@ const signInSuccess = (data) => {
   $('.change-password-top').show()
   $('.hide-on-signed-out').show()
   $('#show-my-surveys').hide()
+  $('#take-surveys').show()
   // show surveys on sign in
   surveyEvents.onGetSurveys()
 }
@@ -87,6 +88,7 @@ const signOutSuccess = () => {
   $('.content').html('')
   $('.hide-on-signed-out').hide()
   $('#show-my-surveys').hide()
+  $('#take-surveys').hide()
 }
 
 const signOutFailure = () => {
